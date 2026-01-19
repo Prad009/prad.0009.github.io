@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Khushi's 5-Phase Love Attack 💘</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(45deg, #ffeef2, #ffccd5, #ff99cc);
+        background-size: 400% 400%;
+        animation: gradientShift 10s ease infinite;
+        font-family: 'Poppins', sans-serif;
+        color: #2a1a28;
+      }
+
+      .phase {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .phase.active {
+        opacity: 1;
+        z-index: 1000;
+      }
+
+      .card {
+        width: 380px;
+        max-width: 92vw;
+        padding: 32px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 28px;
+        box-shadow: 0 24px 60px rgba(255, 107, 140, 0.5);
+        backdrop-filter: blur(16px);
+        text-align: center;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        animation: floaty 4s ease-in-out infinite;
+      }
+
+      .phase-title {
+        font-size: 14px;
+        color: #ff4d88;
+        font-weight: 700;
+        padding: 6px 16px;
+        background: rgba(255, 77, 136, 0.2);
+        border-radius: 20px;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .heart {
+        width: 80px;
+        height: 72px;
+        margin: 20px auto;
+        position: relative;
+        animation: beat 1.3s infinite;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 64px;
+        background: linear-gradient(135deg, #ff4d88, #ff1493);
+        top: 8px;
+        border-radius: 40px 40px 0 0;
+      }
+
+      .heart::before {
+        left: 40px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+      }
+
+      .heart::after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 12px 0;
+        font-weight: 800;
+      }
+
+      .name {
+        color: #ff4d88;
+        text-shadow: 0 2px 8px rgba(255, 77, 136, 0.4);
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 1.5;
+        color: #6b3a5a;
+        margin-bottom: 24px;
+      }
+
+      .big-text {
+        font-size: 20px;
+        font-weight: 800;
+        color: #2a1a28;
+        margin: 16px 0;
+      }
+
+      button {
+        padding: 12px 28px;
+        border: none;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 8px;
+        transition: all 0.3s ease;
+        min-width: 110px;
+      }
+
+      #yesBtn {
+        background: linear-gradient(135deg, #ff4d88, #ff1493);
+        color: white;
+        box-shadow: 0 8px 24px rgba(255, 20, 147, 0.4);
+      }
+
+      #yesBtn:hover {
+        transform: scale(1.05) translateY(-2px);
+      }
+
+      #noBtn {
+        background: white;
+        color: #ff4d88;
+        border: 2px solid rgba(255, 77, 136, 0.4);
+        box-shadow: 0 6px 16px rgba(255, 182, 193, 0.3);
+      }
+
+      #noBtn:hover {
+        background: #ffe6f2;
+        transform: scale(1.02);
+      }
+
+      .hint {
+        font-size: 11px;
+        color: #ff69b4;
+        font-weight: 600;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @keyframes gradientShift {
+
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes floaty {
+
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes beat {
+
+        0%,
+        30%,
+        40%,
+        70%,
+        100% {
+          transform: scale(1);
+        }
+
+        15%,
+        55% {
+          transform: scale(1.12);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PHASE 1: Butterflies -->
+    <div id="phase1" class="phase active">
+      <div class="card">
+        <div class="phase-title">Phase 1: Butterflies 🦋</div>
+        <div class="heart"></div>
+        <h1>
+          <span class="name">Khushi!</span>
+        </h1>
+        <p>"First time I saw you, 1000 butterflies started doing bhangra in my stomach 🦋💃"</p>
+        <div class="big-text">Ready for more cheesiness? 🧀💕</div>
+        <button onclick="app.nextPhase()">Yes Please! 😍</button>
+      </div>
+    </div>
+    <!-- PHASE 2: Heart Stealer -->
+    <div id="phase2" class="phase">
+      <div class="card">
+        <div class="phase-title">Phase 2: Heart Thief 💖</div>
+        <div class="heart"></div>
+        <h1>My <span class="name">Heart Thief</span>
+        </h1>
+        <p>"You stole my heart but I’ll let you keep it coz I wasn’t using it anyway 😜❤️"</p>
+        <div class="big-text">Continue my cheesy love story? 🥺</div>
+        <button onclick="app.nextPhase()">Keep Going! 💕</button>
+      </div>
+    </div>
+    <!-- PHASE 3: Addiction -->
+    <div id="phase3" class="phase">
+      <div class="card">
+        <div class="phase-title">Phase 3: Addicted 😵‍💫</div>
+        <div class="heart"></div>
+        <h1>
+          <span class="name">Khushi</span> Effect
+        </h1>
+        <p>"Officially addicted to your smile, voice & good morning texts 🤯📱 I need my daily dose!"</p>
+        <div class="big-text">Getting closer to THE question... 💘</div>
+        <button onclick="app.nextPhase()">Can't Wait! 😘</button>
+      </div>
+    </div>
+    <!-- PHASE 4: THE PROPOSAL -->
+    <div id="phase4" class="phase">
+      <div class="card">
+        <div class="phase-title">Phase 4: BIG ASK 💌</div>
+        <div class="heart" style="width:100px;height:90px;"></div>
+        <h1>Will you be...</h1>
+        <div class="big-text">
+          <span class="name">My Valentine?</span> 🥺💖
+        </div>
+        <p>"Say yes & make me world's happiest cheesy boy 😍"</p>
+        <div style="display:flex;gap:16px;justify-content:center;margin:20px 0;">
+          <button id="yesBtn4">Yes Babyy! 😍💕</button>
+          <button id="noBtn4">No wayy 🙈</button>
+        </div>
+        <div class="hint">No button = commitment issues 😈</div>
+      </div>
+    </div>
+    <!-- PHASE 5: VICTORY -->
+    <div id="phase5" class="phase">
+      <div class="card" style="width:420px;padding:40px;">
+        <div class="phase-title">Phase 5: LOVE WON! 🎉</div>
+        <div class="heart" style="width:110px;height:100px;margin-bottom:24px;"></div>
+        <h1>OMG <span class="name">KHUSHI</span>! 😍✨ </h1>
+        <div class="big-text">You're my Valentine foreverrrr! 🥰💖</div>
+        <p>"Mission Cheesy Love: SUCCESS! Now collecting my rewards..."</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;">
+          <div style="padding:12px;background:rgba(255,182,193,0.3);border-radius:16px;font-size:12px;">🌹 Candlelight date</div>
+          <div style="padding:12px;background:rgba(255,182,193,0.3);border-radius:16px;font-size:12px;">😘 1000+ kisses</div>
+          <div style="padding:12px;background:rgba(255,182,193,0.3);border-radius:16px;font-size:12px;">🤗 Long cuddles</div>
+          <div style="padding:12px;background:rgba(255,182,193,0.3);border-radius:16px;font-size:12px;">💕 Forever love</div>
+        </div>
+        <div style="margin-top:24px;font-size:12px;color:#ff69b4;">Made with 100% extra cheese for my favorite person 🧀💕</div>
+      </div>
+    </div>
+    <script>
+      class CheesyLoveApp {
+        constructor() {
+          this.phase = 1;
+          this.noClicks = 0;
+          this.init();
+        }
+        init() {
+          this.bindEvents();
+          this.startCheeseParticles();
+        }
+        nextPhase() {
+          document.getElementById(`phase${this.phase}`).classList.remove('active');
+          this.phase++;
+          document.getElementById(`phase${this.phase}`).classList.add('active');
+          if (this.phase === 4) this.startNoButtonChaos();
+          if (this.phase === 5) this.victoryExplosion();
+        }
+        bindEvents() {
+          document.getElementById('yesBtn4').onclick = () => this.nextPhase();
+          document.getElementById('noBtn4').onclick = () => this.handleNoChaos();
+          document.getElementById('noBtn4').onmouseover = (e) => {
+            e.target.style.transform = `translate(${Math.random()*80-40}px, ${Math.random()*40-20}px) rotate(${Math.random()*30-15}deg)`;
+          };
+        }
+        handleNoChaos() {
+          this.noClicks++;
+          const btn = document.getElementById('noBtn4');
+          const cheese = ['"Aww but we’re soulmates!"🥺', '"Khushi plz don’t break me!"😭', '"Last chance meri jaan!"💕', '"Fine… but I’ll win you back!"😏'];
+          if (this.noClicks <= 4) {
+            btn.textContent = cheese[this.noClicks - 1];
+            btn.style.transform = 'scale(0.9)';
+            setTimeout(() => btn.style.transform = '', 200);
+          } else {
+            btn.style.display = 'none';
+          }
+        }
+        victoryExplosion() {
+          for (let i = 0; i < 100; i++) {
+            setTimeout(() => {
+              const conf = document.createElement('div');
+              conf.innerHTML = ['💖', '💕', '🧀', '😍', '✨', '🌟'][Math.floor(Math.random() * 6)];
+              conf.style.cssText = `
+              position:fixed;top:${Math.random()*100}vh;left:${Math.random()*100}vw;
+              font-size:${Math.random()*24+16}px;pointer-events:none;
+              animation: floatUp 3s linear forwards;
+              z-index:2000;opacity:${Math.random()*0.8+0.2};
+            `;
+              document.body.appendChild(conf);
+              setTimeout(() => conf.remove(), 3000);
+            }, i * 30);
+          }
+        }
+        startCheeseParticles() {
+          setInterval(() => {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.cssText = `
+            position:fixed;left:${Math.random()*100}vw;top:100vh;
+            font-size:${Math.random()*18+12}px;pointer-events:none;
+            animation: floatUp 5s linear forwards;
+            opacity:0.6; z-index:500;
+          `;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+          }, 700);
+        }
+      }
+      const style = document.createElement('style');
+      style.textContent = `
+      @keyframes floatUp {
+        0%{transform:translateY(0) scale(0);opacity:1;}
+        100%{transform:translateY(-100vh) scale(1.5);opacity:0;}
+      }
+    `;
+      document.head.appendChild(style);
+      const app = new CheesyLoveApp();
+    </script>
+  </body>
+</html>
